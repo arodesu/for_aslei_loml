@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e8d7f1, #f0e6f6);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .card-container {
+    background: white;
+    border-radius: 30px;
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(123,85,175,0.15);
+  }
+
+  .page { display: none; flex-direction: column; align-items: center; }
+  .page.active { display: flex; }
+
+  h1 { color: #6b4c9a; margin-bottom: 15px; }
+  p { color: #9b8ab5; margin-bottom: 20px; }
+
+  .gift-box img { width: 100px; cursor: pointer; }
+
+  .gift-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .gift-item img { width: 80px; cursor: pointer; }
+
+  .content-box {
+    background: #f8f0ff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: left;
+  }
+
+  .photo-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .photo-gallery img {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+
+  audio { width: 100%; margin-top: 15px; }
+
+  .btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #d8a5d9;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-back { background: #e8d7f1; color: #6b4c9a; }
+
+</style>
+</head>
+<body>
+
+<div class="card-container">
+
+  <!-- PAGE 1: Opening -->
+  <div id="p1" class="page active">
+    <h1>HAPPY VALENTINES DAY!</h1>
+    <p>My love :)</p>
+    <div class="gift-box" onclick="go('p2')">
+      <img src="heart.png" alt="Gift">
+    </div>
+  </div>
+
+  <!-- PAGE 2: Gift Selection -->
+  <div id="p2" class="page">
+    <h1>MADE JUST FOR YOU</h1>
+    <p>Mahhh Bheebiiii ;P</p>
+    <div class="gift-grid">
+      <div class="gift-item" onclick="go('pPhotos')">
+        <img src="roses.gif" alt="Roses">
+      </div>
+      <div class="gift-item" onclick="go('pGallery')">
+        <img src="200w.webp" alt="Photo">
+      </div>
+      <div class="gift-item" onclick="go('pLetter')">
+        <img src="loveletter.gif" alt="Love Letter">
+      </div>
+    </div>
+    <button class="btn btn-back" onclick="go('p1')">Back</button>
+  </div>
+
+  <!-- PAGE 3: Love Letter -->
+  <div id="pLetter" class="page">
+    <h1>ℍ𝔸ℙℙ𝕐 𝕍𝔸𝕃𝔼ℕ𝕋𝕀ℕ𝔼𝕊 𝔻𝔸𝕐 𝕄𝕐 𝕃𝕆𝕍𝔼! :D</h1>
+    <div class="content-box">
+      <p>
+        I know we haven't put a label on things yet, but I really love what we have. Those moments we shared together.<br><br>
+        You’re the only one I want to spend my whole life with.<br><br>
+        I Love You So Much Aslei! Will you be my Valentine? :)
+      </p>
+    </div>
+    <button class="btn btn-back" onclick="go('p2')">Back</button>
+  </div>
+
+  <!-- PAGE 4: Flowers & Song -->
+  <div id="pPhotos" class="page">
+    <h1>Picked Song for You :)</h1>
+    <div class="photo-gallery">
+      <audio controls>
+        <source src="Espresso.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <img src="rose.png" alt="Flower">
+    </div>
+    <button class="btn btn-back" onclick="go('p2')">Back</button>
+  </div>
+
+  <!-- PAGE 5: Photo Gallery -->
+  <div id="pGallery" class="page">
+    <h1>Our Memories</h1>
+    <div class="photo-gallery">
+      <img src="memories.png" alt="Our Love Story">
+    </div>
+    <button class="btn btn-back" onclick="go('p2')">Back</button>
+  </div>
+
+</div>
+
+<script>
+  function go(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
